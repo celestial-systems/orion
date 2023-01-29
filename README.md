@@ -1,5 +1,5 @@
 <h1 align="center">Orion</h1>
-<p align="center">x86_64 micro kernel, used in CelestialOS</p>
+<p align="center">x86_64 micro kernel, used in <a href="https://github.com/celestial-systems/os">CelestialOS</a></p>
 
 <p align="center">
 	<a href="./LICENSE">
