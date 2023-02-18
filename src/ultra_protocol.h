@@ -13,8 +13,7 @@
 #define ULTRA_ATTRIBUTE_COMMAND_LINE 5
 #define ULTRA_ATTRIBUTE_FRAMEBUFFER_INFO 6
 
-struct ultra_attribute_header
-{
+struct ultra_attribute_header {
   uint32_t type;
   uint32_t size;
 };
@@ -23,8 +22,7 @@ struct ultra_attribute_header
 #define ULTRA_PLATFORM_BIOS 1
 #define ULTRA_PLATFORM_UEFI 2
 
-struct ultra_platform_info_attribute
-{
+struct ultra_platform_info_attribute {
   struct ultra_attribute_header header;
   uint32_t platform_type;
 
@@ -40,8 +38,7 @@ struct ultra_platform_info_attribute
 #define ULTRA_PARTITION_TYPE_MBR 2
 #define ULTRA_PARTITION_TYPE_GPT 3
 
-struct ultra_guid
-{
+struct ultra_guid {
   uint32_t data1;
   uint16_t data2;
   uint16_t data3;
@@ -50,8 +47,7 @@ struct ultra_guid
 
 #define ULTRA_PATH_MAX 256
 
-struct ultra_kernel_info_attribute
-{
+struct ultra_kernel_info_attribute {
   struct ultra_attribute_header header;
 
   uint64_t physical_base;
@@ -81,8 +77,7 @@ struct ultra_kernel_info_attribute
 #define ULTRA_MEMORY_TYPE_KERNEL_STACK 0xFFFF0003
 #define ULTRA_MEMORY_TYPE_KERNEL_BINARY 0xFFFF0004
 
-struct ultra_memory_map_entry
-{
+struct ultra_memory_map_entry {
   uint64_t physical_address;
   uint64_t size;
   uint64_t type;
@@ -91,8 +86,7 @@ struct ultra_memory_map_entry
   ((((header).size) - sizeof(struct ultra_attribute_header)) /                 \
    sizeof(struct ultra_memory_map_entry))
 
-struct ultra_memory_map_attribute
-{
+struct ultra_memory_map_attribute {
   struct ultra_attribute_header header;
   struct ultra_memory_map_entry entries[];
 };
@@ -101,8 +95,7 @@ struct ultra_memory_map_attribute
 #define ULTRA_MODULE_TYPE_FILE 1
 #define ULTRA_MODULE_TYPE_MEMORY 2
 
-struct ultra_module_info_attribute
-{
+struct ultra_module_info_attribute {
   struct ultra_attribute_header header;
   uint32_t reserved;
   uint32_t type;
@@ -111,8 +104,7 @@ struct ultra_module_info_attribute
   uint64_t size;
 };
 
-struct ultra_command_line_attribute
-{
+struct ultra_command_line_attribute {
   struct ultra_attribute_header header;
   char text[];
 };
@@ -123,8 +115,7 @@ struct ultra_command_line_attribute
 #define ULTRA_FB_FORMAT_RGBX8888 3
 #define ULTRA_FB_FORMAT_XRGB8888 4
 
-struct ultra_framebuffer
-{
+struct ultra_framebuffer {
   uint32_t width;
   uint32_t height;
   uint32_t pitch;
@@ -133,14 +124,12 @@ struct ultra_framebuffer
   uint64_t physical_address;
 };
 
-struct ultra_framebuffer_attribute
-{
+struct ultra_framebuffer_attribute {
   struct ultra_attribute_header header;
   struct ultra_framebuffer fb;
 };
 
-struct ultra_boot_context
-{
+struct ultra_boot_context {
   uint8_t protocol_major;
   uint8_t protocol_minor;
   uint16_t reserved;
@@ -149,6 +138,6 @@ struct ultra_boot_context
   struct ultra_attribute_header attributes[];
 };
 #define ULTRA_NEXT_ATTRIBUTE(current)                                          \
-  ((struct ultra_attribute_header*)(((uint8_t*)(current)) + (current)->size))
+  ((struct ultra_attribute_header *)(((uint8_t *)(current)) + (current)->size))
 
 #define ULTRA_MAGIC 0x554c5442

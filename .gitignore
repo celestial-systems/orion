@@ -1,2 +1,4 @@
 *.o
 *.x
+.cbuilder-cache
+bin/

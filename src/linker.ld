@@ -1,4 +1,4 @@
-ENTRY(main)
+ENTRY(ori_main)
 
 
 SECTIONS

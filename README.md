@@ -15,8 +15,10 @@
 
 ## Quickstart
 ```sh
-$ make
+$ cc build.c -o build.x
+$ ./build.x
 ```
+then check bin/
 
 ## Bugs
 If you find any bugs, please create an issue and report them.

@@ -5,4 +5,4 @@
       asm volatile("hlt");                                                     \
   } while (0)
 
-#define _PACKED_ __attribute__((packed))
+#define ORI_PACKED __attribute__((packed))
