@@ -1,0 +1,3 @@
+[submodule "build/chol"]
+	path = build/chol
+	url = https://github.com/LordOfTrident/chol.git
