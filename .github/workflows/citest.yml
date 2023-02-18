@@ -10,10 +10,11 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    with:
-      submodules: recursive
+
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
       
     - name: Build
       run: cc build.c -o build.x; ./build.x
